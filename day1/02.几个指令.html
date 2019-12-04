@@ -23,10 +23,10 @@
         <!-- v-html 可以解析字符串中的html标签 -->
         <div v-html="msg2"></div>
 
-        <!-- v-bind: 绑定属性，"" 中的内容当作js表达式来解析, 可以简写成 :属性 v-bind 可以省略 -->
+        <!-- v-bind: 绑定属性，"" 中的内容当作js表达式来解析, 可以简写成 ":属性" v-bind 可以省略 -->
         <input type="button" value="按钮" v-bind:title="mytitle + '123'">
 
-        <!-- v-on 绑定事件 如click, mouseover 等-->
+        <!-- v-on 绑定事件 如click, mouseover 等, 可以简写成 "@:click"-->
         <input type="button" value="Hello" v-on:click="show">
     </div>
 
