@@ -12,7 +12,6 @@
 <body>
     <div id="app">
         
-        
         <div class="panel panel-primary">
               <div class="panel-heading">
                     <h3 class="panel-title">添加品牌</h3>
@@ -24,7 +23,6 @@
                     <input type="button" value="添加" @click="add" class="btn btn-primary">
               </div>
         </div>
-        
 
         <table class="table table-bordered table-hover table-striped">
             <thead>
@@ -41,7 +39,7 @@
                     <td>{{item.name}}</td>
                     <td>{{item.ctime}}</td>
                     <td>
-                        <a href="">删除</a>
+                        <a href="" @click.prevent='del(item.id)'>删除</a>
                     </td>
                 </tr>
             </tbody>
@@ -50,6 +48,12 @@
     </div>
 
     <script>
+        // 设置请求的根路径
+        // 如果通过全局配置请求数据接口，则每次发起http请求的时候，请求的url路径应该以相对路径开头，前面不能带 / ，否则不会启用根路径做拼接
+        Vue.http.options.root = 'http://vue.studyit.io/';
+        // 全局启用 emulateJSON 选项
+        Vue.http.options.emulateJDON = true;
+
         var vm = new Vue({
             el : '#app',
             data : {
@@ -60,8 +64,33 @@
                 ]
             },
             methods : {
-                add(){
-
+                add(){  // 添加品牌列表
+                    // 发送一个post请求
+                    // this.$http.post() 中接收三个参数
+                    //  1、请求的url地址
+                    //  2、以对象的形式提交给服务器的数据
+                    //  3、配置对象，要以哪种表单数据类型提交给服务器如 emulateJSON:true,开启全局启用后，第三个参数可删除
+                    // 在post方法中使用 .then 来设置成功的回调函数，如果想要拿到成功的结果。需要 result.body
+                    this.$http.post('api/addporduct', {name:this.name}, {emulateJSON:true})
+                    .then(result => {
+                        if(result.body.status === 0){
+                            // 添加成功后，刷新品牌列表
+                            this.getAllList()
+                            // 清空 name 输入框
+                            this.name = ''
+                        }else{
+                            alert("添加失败")
+                        }
+                    })
+                },
+                del(id){ // 根据id删除品牌
+                    this.$http.get('api/delproduct/' + id).then(result => {
+                        if(result.body.status === 0){
+                            this.getAllList()
+                        } else {
+                            alert("删除失败")
+                        }
+                    })
                 },
                 created(){
                     this.getAllList()
@@ -72,7 +101,7 @@
                     // 在服务器中拿到数据服务器返回的 result
                     // 判断 result.status 是否等于0， 等于0成功，不等于0就弹窗提醒失败
 
-                    this.$http.get('http://vue.studyit.io/api/getprodlist').then( result =>{
+                    this.$http.get('api/getprodlist').then( result =>{
                         // 通过 $http 获取到的数据都在result.body中
                         var result = result.body
                         if(result.status === 0){
