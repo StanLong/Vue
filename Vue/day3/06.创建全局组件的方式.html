@@ -14,11 +14,12 @@
         <!-- 如果不使用驼峰命名，则直接引用即可 -->
         <!-- <my-com1></my-com1>  -->
         <!-- <mycom3></mycom3> -->
-        <mycom4></mycom4>
+        <!-- <mycom4></mycom4> -->
+        <mycom5></mycom5>
     </div>
 
     <div id="app2">
-        <mycom4></mycom4>
+        <!-- <mycom4></mycom4> -->
     </div>
     
     <!-- 在被控制的 #app 外面，使用 template 元素，定义组件的html模板结构 -->
@@ -52,9 +53,16 @@
 
 
         // 方式四
-        Vue.component('mycom4', {
-            template : '#tmpl'
-        })
+        // Vue.component('mycom4', {
+        //     template : '#tmpl'
+        // })
+
+        // 方式五
+        // 通过对象字面量的形式定义了一个组件模板
+        var login = {
+            template:'<h1>mycom5</h1>'
+        }
+        Vue.component('mycom5', login)
 
         var vm = new Vue({
             el : '#app',

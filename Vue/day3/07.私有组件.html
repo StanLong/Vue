@@ -10,6 +10,8 @@
 <body>
     <div id='app'>
         <login></login>
+        <!-- <mycom5></mycom5> -->
+        <login2></login2>
     </div>
 
     <div id='app2'>
@@ -21,6 +23,12 @@
     </template>
 
     <script>
+
+        var login2 = {
+            template:'<h1>mycom5</h1>'
+        }
+        Vue.component('mycom5', login2)
+
         var vm = new Vue({
             el : '#app',
             data : {
@@ -32,7 +40,9 @@
             components :{ //定义内部实例私有组件
                 login : {
                     template : '#tmpl'
-                }
+                },
+                // 'mycom5':login 可简写为
+                login2
             }
         })
 
