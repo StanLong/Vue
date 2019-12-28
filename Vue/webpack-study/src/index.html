@@ -8,7 +8,14 @@
     <!-- main中的代码涉及到了es6的新语法，但是浏览器不识别 -->
     <!-- <script type="module" src="./main.js"></script> -->
     <!-- 通过webpack 把main.js 做了一下处理，生成了一个 bundle.js 的文件 -->
-    <script src="../dist/bundle.js"></script>
+    <!-- 运行命令 webpack .\src\main.js -o .\dist\bundle.js -->
+    <!-- <script src="../dist/bundle.js"></script> -->
+
+    <!-- webpack-dev-server 打包生成的 bundle.js 文件并没有存到实际的物理磁盘上，而是托管到了内存中 -->
+    <!-- 当使用了 html-webpack-plugin 之后，不需要再手动处理 bundle.js 的引用路径了
+        插件会自动创建一个合适的 script， 并引用正确的路径
+     -->
+    <!-- <script src="/bundle.js"></script> -->
 
     <!-- webpack的用法 -->
     <!--
@@ -23,6 +30,28 @@
          1、webpack 能处理 js 文件间的相互依赖关系
          2、webpack 能够处理js的兼容性问题，把高级的浏览器不识别的语法，转为低级的，浏览器能正常识别的语法
       -->
+    <!-- 
+        当直接在控制台执行webpack命令的时候，webpack做了以下几步
+        1、webpack在项目的根目录中查找 webpack.config.js 文件
+        2、解析执行这个文件，得到到处配置对象中指定的入口和出口
+        3、打包构建
+    -->
+
+    <!-- 
+        使用 webpack-dev-server 实现自动打包编译的功能
+        1、运行 npm i webpack-dev-server- D 把工具安装到项目根目录
+        2、
+     -->
+
+    <!-- 
+        安装 html-webpack-plugin, 在内存中生成html
+        1、npm i html-webpack-plugin -D
+        自动再内存中根据指定的页面生成一个内存的页面
+        自动把打包好的 bundle.js 追加到页面中
+    -->
+
+    <!-- css 会发起第二次请求，不推荐 -->
+    <!-- <link rel="stylesheet" href="./css/index.css"> -->
 </head>
 <body>
     <!-- ul>li*10{这是第$个li} -->
