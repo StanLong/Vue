@@ -17,7 +17,7 @@ module.exports={
         // --open --port 3000 --contentBase src --hot
         open: true, // 自动打开浏览器
         port:3000, // 设置启动时候的运行端口
-        contentBase:'src', // 指定托管的根目录
+        //contentBase:'src', // 指定托管的根目录
         hot:true // 启用热更新
     },
     plugins:[ // 配置插件的节点 // wbpack4启用热更新的不需要配置
@@ -31,7 +31,9 @@ module.exports={
         rules:[ // 第三方模块的匹配规则
             {test: /\.css$/, use:['style-loader', 'css-loader']}, // 配置处理 .css 文件的第三方loader,从右往左调用
             {test: /\.less$/, use:['style-loader', 'css-loader', 'less-loader']}, // 配置处理 .less 文件的第三方loader,从右往左调用
-            {test: /\.scss$/, use:['style-loader', 'css-loader', 'sass-loader']} // 配置处理 .scss 文件的第三方loader,从右往左调用
+            {test: /\.scss$/, use:['style-loader', 'css-loader', 'sass-loader']}, // 配置处理 .scss 文件的第三方loader,从右往左调用
+            {test: /\.(jpg|png|gif|bmp|jpeg)$/, use:'url-loader?limit=43,923&name=[hash:8]-[name].[ext]'} // 配置处理 图片 文件的第三方loader, limit是固定参数
+            // limit 给定的值就图片的大小，单位是 byte， 如果我们引用的图片大于或等于给定的 limit 值， 则不会被转为 base64格式的字符串，否则会转为base64字符串
 
         ]
 

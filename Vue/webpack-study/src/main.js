@@ -18,6 +18,8 @@ import './css/index.less'
 // npm i sass-loader -D
 import './css/index.scss'
 
+import 'bootstrap/dist/css/bootstrap.css'
+
 $(function(){
     $('li:odd').css('backgroundColor', 'green')
     $('li:even').css('backgroundColor', function(){
