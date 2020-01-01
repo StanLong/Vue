@@ -35,6 +35,9 @@ module.exports={
             {test: /\.(jpg|png|gif|bmp|jpeg)$/, use:'url-loader?limit=43,923&name=[hash:8]-[name].[ext]'} // 配置处理 图片 文件的第三方loader, limit是固定参数
             // limit 给定的值就图片的大小，单位是 byte， 如果我们引用的图片大于或等于给定的 limit 值， 则不会被转为 base64格式的字符串，否则会转为base64字符串
 
+            // 导入 bootstrap 字体没生效
+            //{test:/\.(ttf|eot|svg|woff|woff2|otf)$/, use: 'url-loader'}
+
         ]
 
     }
