@@ -1,7 +1,7 @@
 const path = require('path')
 // 启用热更新
 const webpack = require('webpack') // wbpack4启用热更新的不需要配置
-// 导入在内存中生成html页面的插件, 只有是插件都一定要梵高 plugins 节点中去
+// 导入在内存中生成html页面的插件, 只要是插件都一定归档到 plugins 节点中去
 const htmlWebpackPlugin = require('html-webpack-plugin')
 
 

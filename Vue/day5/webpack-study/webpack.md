@@ -29,6 +29,9 @@ webpack 基于Node.js开发出来的一个前端项目构建工具
 
 ## webpack 安装的两种方式
 1. 运行 npm i webpack -g 全局安装webpack
+* webpack4 运行 npm i webpack -g 会报错,执行如下两条命令
+ - npm install --save-dev webpack
+ - npm install webpack-cli -D
 2. 在项目根目录中运行 npm i webpack --save-dev 安装到项目依赖中
 
 ## webpack 的相关使用命令
