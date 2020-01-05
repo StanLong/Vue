@@ -18,10 +18,6 @@ import './css/index.less'
 // npm i sass-loader -D
 import './css/index.scss'
 
-// 导入 bootstrap 字体没生效
-//import 'bootstrap/dist/css/bootstrap.css'
-//import 'open-iconic/font/css/open-iconic-bootstrap.css'
-
 $(function(){
     $('li:odd').css('backgroundColor', 'green')
     $('li:even').css('backgroundColor', function(){
