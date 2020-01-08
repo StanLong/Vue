@@ -17,7 +17,17 @@ module.exports = {
     plugins:[ // 所有webpack 插件的配置节点
         new htmlWebpackPlugin({
             template : path.join(__dirname, './src/index.html'), // 指定模板文件路径
-            finlename:'index.html' // 设置生成的内存页面名称
+            filename:'index.html' // 设置生成的内存页面名称
         })
-    ]
+    ],
+    module:{ //配置所有第三方loader模块
+        rules:[ // 第三方模块的匹配规则
+            {test:/\.css$/, use:['style-loader', 'css-loader']}, // 处理css文件的loader
+            {test:/\.less$/, use:['style-loader', 'css-loader', 'less-loader']}, // 处理less文件的loader
+            {test:/\.scss$/, use:['style-loader', 'css-loader', 'sass-loader']}, // 处理sass文件的loader
+            {test:/\.(jpg|png|gif|bmp|jpeg)$/, use:'url-loader?limit=31,097&name=[hash:8]-[name].[ext]'} // 处理图片文件的loader
+            // limit 给定的值是图片的大小，单位是byte，如果我们引用的图片大于或等于给定的limit值，则不会被转为base64格式的字符串
+            // 为防止图片重名导致后面的图片覆盖前面的图片，在图片名称前加一个8位的hash值
+        ]
+    }
 }
