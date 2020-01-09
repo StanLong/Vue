@@ -29,7 +29,9 @@ module.exports = {
             // limit 给定的值是图片的大小，单位是byte，如果我们引用的图片大于或等于给定的limit值，则不会被转为base64格式的字符串
             // 为防止图片重名导致后面的图片覆盖前面的图片，在图片名称前加一个8位的hash值
 
-            {test:/\.(ttf|eot|otf|svg|woff|woff2)$/, use:'url-loader'} // 处理字体文件的loader
+            {test:/\.(ttf|eot|otf|svg|woff|woff2)$/, use:'url-loader'}, // 处理字体文件的loader
+
+            {test:/\.js$/, use:'babel-loader', exclude:/node-modules/} // 配置 babel 来转换高级的 ES 语法
         ]
     }
 }
