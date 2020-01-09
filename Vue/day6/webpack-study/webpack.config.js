@@ -25,9 +25,11 @@ module.exports = {
             {test:/\.css$/, use:['style-loader', 'css-loader']}, // 处理css文件的loader
             {test:/\.less$/, use:['style-loader', 'css-loader', 'less-loader']}, // 处理less文件的loader
             {test:/\.scss$/, use:['style-loader', 'css-loader', 'sass-loader']}, // 处理sass文件的loader
-            {test:/\.(jpg|png|gif|bmp|jpeg)$/, use:'url-loader?limit=31,097&name=[hash:8]-[name].[ext]'} // 处理图片文件的loader
+            {test:/\.(jpg|png|gif|bmp|jpeg)$/, use:'url-loader?limit=31,097&name=[hash:8]-[name].[ext]'}, // 处理图片文件的loader
             // limit 给定的值是图片的大小，单位是byte，如果我们引用的图片大于或等于给定的limit值，则不会被转为base64格式的字符串
             // 为防止图片重名导致后面的图片覆盖前面的图片，在图片名称前加一个8位的hash值
+
+            {test:/\.(ttf|eot|otf|svg|woff|woff2)$/, use:'url-loader'} // 处理字体文件的loader
         ]
     }
 }
