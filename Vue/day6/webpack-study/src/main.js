@@ -18,11 +18,11 @@ import 'open-iconic/font/css/open-iconic-bootstrap.css'
 // 通过 Babel 将高级语法转换为低级语法
 // 第一步
 // 在webpack中需要安装如下两套包
-// 第一套包 npm i babel-core babel-loader babel-plugin-transform-runtime -D
+// 第一套包 npm i babel-core babel-loader@7 babel-plugin-transform-runtime -D
 // 第二套包 npm i babel-preset-env babel-preset-stage-0 -D
 // 第二步
 // 在 webpack.config.js 文件 module 节点下的rules数组中，添加一个新的匹配规则
-// {test:/\.js$/, use:'babel-loader', exclude:/node-modules/}
+// {test:/\.js$/, use:'babel-loader', exclude:/node_modules/}
 // 注意，在配置 babel-loader的时候，必须包 node_modules目录通过 exclude排除掉
 // 原因1：如果不排除 node_modules， 则babel会把node_modules中的所有第三方js文件都打包编译，这样会非常消耗CPU，打包的速度也会非常慢
 // 原因2：如果不排除，项目无法正常运行

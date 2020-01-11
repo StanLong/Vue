@@ -31,7 +31,7 @@ module.exports = {
 
             {test:/\.(ttf|eot|otf|svg|woff|woff2)$/, use:'url-loader'}, // 处理字体文件的loader
 
-            {test:/\.js$/, use:'babel-loader', exclude:/node-modules/} // 配置 babel 来转换高级的 ES 语法
+            {test:/\.js$/, use:'babel-loader', exclude:/node_modules/} // 配置 babel 来转换高级的 ES 语法
         ]
     }
 }
