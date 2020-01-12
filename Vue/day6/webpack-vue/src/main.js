@@ -52,3 +52,13 @@ var vm = new Vue({
 // 定义一个.vue结尾的组件，组件由 template scripte style 三部分组成
 // 使用 import 导入这个组件
 // 创建 vm 的实例
+
+
+
+
+import m1, {title as title123, content } from './test.js'
+console.log(m1);
+console.log(title123 + '-------' + content);
+console.log(content);
+
+
