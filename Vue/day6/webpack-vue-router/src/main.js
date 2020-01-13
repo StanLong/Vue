@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 // 1.导入 vue-router 的包
+// npm i vue-router -S
 import VueRouter from 'vue-router'
 
 // 2.手动安装 VueRouter
