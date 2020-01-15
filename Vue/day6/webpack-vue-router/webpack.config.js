@@ -27,6 +27,10 @@ module.exports = {
     ],
     module:{ //配置所有第三方loader模块
         rules:[ // 第三方模块的匹配规则
+            {test: /\.css$/, use:['style-loader', 'css-loader']}, // 配置处理 .css 文件的第三方loader,从右往左调用
+            {test: /\.less$/, use:['style-loader', 'css-loader', 'less-loader']}, // 配置处理 .less 文件的第三方loader,从右往左调用
+            {test: /\.scss$/, use:['style-loader', 'css-loader', 'sass-loader']}, // 配置处理 .scss 文件的第三方loader,从右往左调用
+            {test:/\.js$/, use:'babel-loader', exclude:/node_modules/}, // 配置 babel 来转换高级的 ES 语法
             {test:/\.vue$/, use:'vue-loader'} // 处理 .vue 文件的loader
         ]
     },

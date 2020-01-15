@@ -11,6 +11,12 @@
 
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+/*普通的style标签只支持普通的样式，如果要启用 scss 或者 less， 需要为 style 元素设置 lang 属性 */
+// 只要style标签是在 .vue 组件中定义的，那么推荐style开启 scoped 属性
+body {
+    div {
+        font-style: italic;
+    }
+}
 </style>
