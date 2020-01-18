@@ -5,6 +5,23 @@ import app from './App.vue'
 
 import router from './router.js'
 
+// 导入 bootstrap 样式
+import 'bootstrap/dist/css/bootstrap.css'
+
+import './css/app.css'
+
+// 导入 MintUI(导入了所有的组件)
+//MintUI 官网 https://mint-ui.github.io/#!/zh-cn
+import MintUI from 'mint-ui'
+
+// 导入 MintUI 样式
+import 'mint-ui/lib/style.css'
+
+// 将 MintUI 安装到Vue中
+Vue.use(MintUI) // 把所有的组件注册为全局组件
+
+
+
 var vm = new Vue({
     el:'#app',
     render: c=> c(app), //render 会把el指定的容器中所有的内容都清空覆盖， 所有不要把 router-view 和 router-link直接写到el控制的元素中
